@@ -12,7 +12,7 @@ Choose only **one** rule per teammate from the following list:
 2. **Rule 2: Project Record Validation (Matthew Macri)**
    - Ensure all project records contain the necessary details: **name** and **budget**.
 
-3. **Rule 3: Project Budget Validation**
+3. **Rule 3: Project Budget Validation (Kais Rafie)**
    - Ensure all project records have a **budget amount greater than zero**.
 
 4. **Rule 4: Department Record Validation**

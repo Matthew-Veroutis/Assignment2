@@ -4,10 +4,11 @@ namespace services;
 
 class ProjectRecordService {
     public function validateProjectRecord($name, $budget) {
+        $name = $this->validateInput($name);
+        $budget = $this->validateInput($budget);
         if (empty($name) || empty($budget)) {
             return false; 
         }
-
         return true;
     }
 
@@ -16,6 +17,15 @@ class ProjectRecordService {
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
+    }
+
+    // ensure that all project records have a budget amount greate than zero
+    public function validateBudget($budget) {
+        $budget = $this->validateInput($budget);
+        if ($budget <= 0) {
+            return false;
+        }
+        return true;
     }
 }
 
@@ -37,4 +47,12 @@ echo "<br>";
 
 echo "fourth test: ";
 echo $projectrecordservice->validateProjectRecord("", null) ? 'Valid Input' : 'Invalid Input';
+echo "<br>";
+
+echo "fifth test: ";
+echo $projectrecordservice->validateBudget(0) ? 'Budget amount valid' : 'Invalid budget amount';
+echo "<br>";
+
+echo "sixth test: ";
+echo $projectrecordservice->validateBudget(500) ? 'Budget amount valid' : 'Invalid budget amount';
 echo "<br>";

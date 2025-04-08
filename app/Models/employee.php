@@ -98,17 +98,24 @@ class Employee{
         if($this->employeeRecordService->validateEmployeeRecord($this->firstName, $this->departmentID, $this->title)) {
             $query = "INSERT INTO employees VALUES(:employeeID, :firstName, :lastName, :title, :departmentID)";
             $stmt = $this->dbConnection->prepare($query);
-            $stmt->bindParam(':employeeID',$this->employeeRecordService->validateInput($this->employeeID));
-            $stmt->bindParam(':firstName',$this->employeeRecordService->validateInput($this->firstName));
-            $stmt->bindParam(':lastName',$this->employeeRecordService->validateInput($this->lastName));
-            $stmt->bindParam(':title',$this->employeeRecordService->validateInput($this->title));
-            $stmt->bindParam(':departmentID',$this->employeeRecordService->validateInput($this->departmentID));
+
+            $employeeID = $this->employeeRecordService->validateInput($this->employeeID);
+            $firstName = $this->employeeRecordService->validateInput($this->firstName);
+            $lastName = $this->employeeRecordService->validateInput($this->lastName);
+            $title = $this->employeeRecordService->validateInput($this->title);
+            $departmentID = $this->employeeRecordService->validateInput($this->departmentID);
+
+            $stmt->bindParam(':employeeID',$employeeID);
+            $stmt->bindParam(':firstName',$firstName);
+            $stmt->bindParam(':lastName',$lastName);
+            $stmt->bindParam(':title',$title);
+            $stmt->bindParam(':departmentID',$departmentID);
             $stmt->execute();
         } else 
-            echo "Insert Failed please fill all required feilds such as firstName, departmentID and title ";
+            echo "Insert Failed please fill all required fields such as firstName, departmentID and title ";
         
     }
-    
+
 }
 
 /*TEST   

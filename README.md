@@ -18,7 +18,7 @@ Choose only **one** rule per teammate from the following list:
 4. **Rule 4: Department Record Validation**
    - Ensure all department records contain the necessary detail: **name**.
 
-5. **Rule 5: Employee Title Validation**
+5. **Rule 5: Employee Title Validation (Tarek Abou Chahin)**
    - Ensure all employee records have the **title only containing alphabetical characters**.
 
 ## User Input Validation

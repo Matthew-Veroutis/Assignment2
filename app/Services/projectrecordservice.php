@@ -28,31 +28,3 @@ class ProjectRecordService {
         return true;
     }
 }
-
-//testing:
-
-$projectrecordservice = new ProjectRecordService();
-
-echo "first test: ";
-echo $projectrecordservice->validateProjectRecord("Apple", 10000) ? 'Valid Input' : 'Invalid Input';
-echo "<br>";
-
-echo "second test: ";
-echo $projectrecordservice->validateProjectRecord("Mango", null) ? 'Valid Input' : 'Invalid Input';
-echo "<br>";
-
-echo "third test: ";
-echo $projectrecordservice->validateProjectRecord("", 100000) ? 'Valid Input' : 'Invalid Input';
-echo "<br>";
-
-echo "fourth test: ";
-echo $projectrecordservice->validateProjectRecord("", null) ? 'Valid Input' : 'Invalid Input';
-echo "<br>";
-
-echo "fifth test: ";
-echo $projectrecordservice->validateBudget(0) ? 'Budget amount valid' : 'Invalid budget amount';
-echo "<br>";
-
-echo "sixth test: ";
-echo $projectrecordservice->validateBudget(500) ? 'Budget amount valid' : 'Invalid budget amount';
-echo "<br>";
